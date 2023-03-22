@@ -12,7 +12,12 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-4 d-flex justify-content-center">
                 <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/450/250?random={{$product->id}}" class="card-img-top" alt="...">
+                    @if($product->image)
+                        <img src="{{Storage::url($product->image)}}" class="card-img-top" alt="{{$product->name}}">
+                    @else
+                        <img src="/img/default.jpg" class="card-img-top" alt="...">
+                    @endif
+                    
                     <div class="card-body">
                         <h5 class="card-title">{{$product->name}}</h5>
                         <p>{{$product->price}}</p>
