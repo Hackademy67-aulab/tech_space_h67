@@ -12,17 +12,42 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('indexProduct')}}">Tutti i prodotti</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('createShop')}}">Crea negozio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('indexShop')}}">Tutti i negozi</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              @guest
+              <li><a class="dropdown-item" href="{{route('login')}}">Accedi</a></li>
+              <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
+              @else
+              <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
+              <form id="form-logout" method="POST" action="{{route('logout')}}" class="d-none">@csrf</form>
+              @endguest
             </ul>
           </li>
         </ul>
+
+        {{-- ERRORE COMUNE
+        Ciao {{Auth::user()->name}} --}}
+
+        {{-- @auth
+          Ciao {{Auth::user()->name}}
+        @else
+          Ciao, accedi!    
+        @endauth --}}
+
+        @guest
+          Ciao, accedi!
+        @else
+          Ciao {{Auth::user()->name}}
+        @endguest
       </div>
     </div>
   </nav>
