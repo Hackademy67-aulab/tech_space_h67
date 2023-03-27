@@ -18,9 +18,14 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('indexShop')}}">Tutti i negozi</a>
           </li>
+          @auth
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('userProfile')}}">Profilo utente</a>
+            </li>
+          @endauth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Registrazione
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               @guest

@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //:HasMany descrive che la funzione restituirá un dato particolare instanza della classe HasMany
+    //Il nome della funzione deve essere il plurale del nome del modello coinvolto nella relazione
+    public function shops(): HasMany
+    {
+        //L'oggetto user appena creato sará collegato a piú istanze(Oggetti) della classe Shop
+        //Has many restituisce sempre una collection
+        return $this->hasMany(Shop::class);
+    }
 }

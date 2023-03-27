@@ -22,6 +22,9 @@
                             <h5 class="card-title">{{$shop->name}}</h5>
                             <p>{{$shop->city}}</p>
                             <p>{{$shop->description}}</p>
+                            {{-- TRAVERSAMENTO DEI MODELLI --}}
+                            {{-- @dd($shop->user->name) --}}
+                            <p>Inserito da: {{$shop->user->name}}</p>
                             <a href="{{route('indexShop')}}" class="btn btn-primary">Torna indietro</a>
                         </div>
                     </div>

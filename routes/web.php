@@ -32,3 +32,7 @@ Route::get('/show-shop/{shop}', [ShopController::class, 'show'])->name('showShop
 Route::get('/edit-shop/{shop}', [ShopController::class, 'edit'])->name('editShop');
 Route::put('/update-shop/{shop}', [ShopController::class, 'update'])->name('updateShop');
 Route::delete('/delete-shop/{shop}', [ShopController::class, 'destroy'])->name('deleteShop');
+
+//Rotte per profilo utente
+Route::get('/user-profile',[PublicController::class, 'userProfile'])->name('userProfile');
+Route::delete('/user-delete', [PublicController::class, 'destroy'])->name('deleteUser');
