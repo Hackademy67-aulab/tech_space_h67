@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container shadow">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
                 <table class="table">
@@ -43,13 +43,13 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center mt-5">
             <div class="col-12 col-md-6 d-flex justify-content-center">
-            <form action="{{route('deleteUser')}}" method="POST">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger">Cancellati</button>
-            </form>
+                <form action="{{route('deleteUser')}}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Cancellati</button>
+                </form>
             </div>
         </div>
     </div>

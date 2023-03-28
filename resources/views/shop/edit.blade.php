@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <form class="p-5 shadow" method="POST" action="{{route('updateShop', compact('shop'))}}" enctype="multipart/form-data">
+                <form class="p-5 shadow" method="POST" action="{{route('updateProduct', compact('shop'))}}" enctype="multipart/form-data">
 
                     @method('put')
 

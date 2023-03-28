@@ -22,6 +22,12 @@
                         <h5 class="card-title">{{$product->name}}</h5>
                         <p>{{$product->price}}</p>
                         <p>{{$product->description}}</p>
+                        <label for="shops">Venduto presso:</label>
+                        {{-- @dd($product->shops) --}}
+                        {{-- @if(($product->shops) > 0) //modo corretto per controllare se ci sono elementi nella collection--}}
+                        @foreach ($product->shops as $shop)
+                            <p>{{$shop->name}} ( {{$shop->city}} )</p>
+                        @endforeach
                         <a href="{{route('indexProduct')}}" class="btn btn-primary">Indietro</a>
                     </div>
                 </div>
