@@ -19,13 +19,13 @@ class PublicController extends Controller
     public function destroy(){
 
         //prendo tutti i negozi collegati all'utente autenticato e li seleziono uno alla volta
-        foreach (Auth::user()->shops as $shop) {
-            //Dissocia dall'utente seleziona il negozio
-            //Che di sicuro per controllo incorciato é il negozio collegato all'utente specifico
-            $shop->user()->dissociate();
-            //Salva la modifica nel database
-            $shop->save();
-        }
+        // foreach (Auth::user()->shops as $shop) {
+        //     //Dissocia dall'utente seleziona il negozio
+        //     //Che di sicuro per controllo incorciato é il negozio collegato all'utente specifico
+        //     $shop->user()->dissociate();
+        //     //Salva la modifica nel database
+        //     $shop->save();
+        // }
 
         Auth::user()->delete();
 

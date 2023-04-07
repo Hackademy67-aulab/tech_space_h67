@@ -89,6 +89,11 @@ class ShopController extends Controller
      */
     public function destroy(Shop $shop)
     {
+
+        foreach ($shop->products as $product) {
+            $product->shops()->detach($shop->id);
+        }
+
         //Questa azione si divide in 3 parti
         //il metodo delete della rotta
         //il nome destroy della funzione collegata alla rotta parametrica
